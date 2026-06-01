@@ -5,83 +5,88 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maestro Platform · Yönetim Kokpiti</title>
     <style>
+        /* ===== Corporate Light teması ===== */
         :root {
-            --bg: #1e1e2e; --bg-kart: #313244; --kenar: #45475a; --hover: #3a3c52;
-            --metin: #cdd6f4; --metin-soft: #a6adc8; --metin-dim: #6c7086;
-            --isim: #f5e0dc; --mono: #f9e2af;
-            --mavi: #89b4fa; --yesil: #a6e3a1; --sari: #f9e2af; --kirmizi: #f38ba8;
-            --mauve: #cba6f7; --peach: #fab387;
+            --bg: #f8f9fa; --bg-kart: #ffffff; --kenar: #dee2e6; --tablo-head: #f1f3f5; --hover: #f1f3f5;
+            --metin: #343a40; --metin-soft: #6c757d; --metin-dim: #adb5bd;
+            --isim: #212529; --mono: #495057;
+            --mavi: #1d4e89;        /* Primary — derin denim mavi */
+            --accent: #e8920c;      /* Accent — amber */
+            --yesil: #28a745; --sari: #e8920c; --kirmizi: #dc3545;
+            --mauve: #6f42c1; --peach: #e8920c;
+            --golge: 0 1px 3px rgba(0,0,0,0.07), 0 1px 2px rgba(0,0,0,0.04);
         }
         * { box-sizing: border-box; }
         body {
             background-color: var(--bg); color: var(--metin);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            padding: 24px 18px; margin: 0;
+            padding: 32px 24px; margin: 0;
         }
-        .kokpit { max-width: 1080px; margin: 0 auto; }
+        .kokpit { max-width: 1120px; margin: 0 auto; }
         .ust-bar {
             display: flex; align-items: baseline; justify-content: space-between;
             gap: 12px; flex-wrap: wrap; margin-bottom: 4px;
         }
-        h1 { color: var(--mavi); font-size: 1.9rem; margin: 0; }
-        .alt-baslik { color: var(--metin-soft); font-size: 0.95rem; margin: 0 0 18px; }
+        h1 { color: var(--mavi); font-size: 2rem; margin: 0; }
+        .alt-baslik { color: var(--metin-soft); font-size: 0.98rem; margin: 0 0 24px; }
 
         /* Kontroller */
         .kontrol-kart {
             background-color: var(--bg-kart); border-left: 4px solid var(--mauve);
-            padding: 12px 16px; border-radius: 0 8px 8px 0;
-            display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-end; margin-bottom: 16px;
+            padding: 18px 22px; border-radius: 8px; box-shadow: var(--golge);
+            display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-end; margin-bottom: 22px;
         }
-        .alan { display: flex; flex-direction: column; gap: 4px; flex: 1 1 140px; }
-        .alan label { font-size: 0.72rem; color: var(--metin-soft); text-transform: uppercase; letter-spacing: 0.04em; }
+        .alan { display: flex; flex-direction: column; gap: 5px; flex: 1 1 150px; }
+        .alan label { font-size: 0.74rem; color: var(--metin-soft); text-transform: uppercase; letter-spacing: 0.04em; }
         .alan input {
-            background-color: var(--bg); color: var(--metin); border: 1px solid var(--kenar);
-            border-radius: 6px; padding: 8px 10px; font-family: inherit; font-size: 0.92rem;
+            background-color: var(--bg-kart); color: var(--metin); border: 1px solid var(--kenar);
+            border-radius: 6px; padding: 9px 12px; font-family: inherit; font-size: 0.93rem;
         }
-        .alan input:focus { outline: none; border-color: var(--mavi); }
+        .alan input:focus { outline: none; border-color: var(--mavi); box-shadow: 0 0 0 3px rgba(29,78,137,0.15); }
 
         .btn {
-            background-color: var(--mavi); color: var(--bg); border: none; border-radius: 6px;
-            padding: 9px 16px; font-family: inherit; font-size: 0.92rem; font-weight: bold;
-            cursor: pointer; transition: filter 0.15s ease, transform 0.05s ease;
+            background-color: var(--mavi); color: #ffffff; border: none; border-radius: 6px;
+            padding: 10px 18px; font-family: inherit; font-size: 0.93rem; font-weight: 600;
+            cursor: pointer; transition: filter 0.15s ease, transform 0.05s ease, box-shadow 0.15s ease;
         }
-        .btn:hover { filter: brightness(1.1); }
+        .btn:hover { filter: brightness(1.06); box-shadow: var(--golge); }
         .btn:active { transform: translateY(1px); }
-        .btn:disabled { opacity: 0.6; cursor: progress; }
+        .btn:disabled { opacity: 0.55; cursor: progress; }
         .btn.mauve { background-color: var(--mauve); }
-        .btn.peach { background-color: var(--peach); }
+        .btn.peach { background-color: var(--accent); }
         .btn.pink  { background-color: var(--kirmizi); }
-        .btn.kucuk { padding: 5px 11px; font-size: 0.82rem; }
+        .btn.kucuk { padding: 6px 12px; font-size: 0.83rem; }
         .btn.hayalet { background-color: transparent; color: var(--mavi); border: 1px solid var(--kenar); }
-        .btn.hayalet:hover { border-color: var(--mavi); filter: none; }
+        .btn.hayalet:hover { border-color: var(--mavi); background-color: rgba(29,78,137,0.06); filter: none; box-shadow: none; }
 
         /* Action Required widget */
         .action-widget {
-            background-color: var(--bg-kart); border-left: 4px solid var(--kirmizi);
-            border-radius: 0 8px 8px 0; padding: 12px 16px; margin-bottom: 18px;
+            background-color: var(--bg-kart); border-left: 4px solid var(--accent);
+            border-radius: 8px; box-shadow: var(--golge); padding: 18px 22px; margin-bottom: 24px;
         }
         .action-widget.temiz { border-left-color: var(--yesil); }
-        .action-ust { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
-        .action-ust h3 { margin: 0; font-size: 0.95rem; color: var(--isim); text-transform: uppercase; letter-spacing: 0.05em; }
-        .action-cipler { display: flex; flex-wrap: wrap; gap: 8px; }
+        .action-ust { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+        .action-ust h3 { margin: 0; font-size: 0.92rem; color: var(--accent); text-transform: uppercase; letter-spacing: 0.06em; }
+        .action-widget.temiz .action-ust h3 { color: var(--yesil); }
+        .action-cipler { display: flex; flex-wrap: wrap; gap: 10px; }
         .cip {
             display: inline-flex; align-items: center; gap: 6px; cursor: pointer;
-            padding: 6px 12px; border-radius: 999px; font-size: 0.85rem; font-weight: bold;
+            padding: 7px 13px; border-radius: 999px; font-size: 0.85rem; font-weight: 600;
             border: 1px solid transparent;
         }
-        .cip:hover { filter: brightness(1.12); }
-        .cip.kirmizi { background-color: rgba(243,139,168,0.16); color: var(--kirmizi); border-color: rgba(243,139,168,0.4); }
-        .cip.sari    { background-color: rgba(249,226,175,0.16); color: var(--sari); border-color: rgba(249,226,175,0.4); }
-        .cip.peach   { background-color: rgba(250,179,135,0.16); color: var(--peach); border-color: rgba(250,179,135,0.4); }
-        .cip.yesil   { background-color: rgba(166,227,161,0.16); color: var(--yesil); border-color: rgba(166,227,161,0.4); }
-        .cip .sayi { background-color: rgba(0,0,0,0.25); border-radius: 999px; padding: 0 7px; font-size: 0.78rem; }
+        .cip:hover { filter: brightness(0.97); }
+        .cip.kirmizi { background-color: rgba(220,53,69,0.10); color: #c82333; border-color: rgba(220,53,69,0.30); }
+        .cip.sari    { background-color: rgba(232,146,12,0.13); color: #b06f08; border-color: rgba(232,146,12,0.34); }
+        .cip.peach   { background-color: rgba(232,146,12,0.13); color: #b06f08; border-color: rgba(232,146,12,0.34); }
+        .cip.yesil   { background-color: rgba(40,167,69,0.10); color: #1e7e34; border-color: rgba(40,167,69,0.30); }
+        .cip .sayi { background-color: rgba(0,0,0,0.08); border-radius: 999px; padding: 0 8px; font-size: 0.78rem; }
 
         /* Sekmeler */
-        .tab-nav { display: flex; gap: 6px; border-bottom: 1px solid var(--kenar); margin-bottom: 20px; flex-wrap: wrap; }
+        .tab-nav { display: flex; gap: 6px; border-bottom: 2px solid var(--kenar); margin-bottom: 24px; flex-wrap: wrap; }
         .tab-btn {
-            background: transparent; border: none; border-bottom: 3px solid transparent;
-            color: var(--metin-soft); font-family: inherit; font-size: 1rem; font-weight: bold;
-            padding: 10px 16px; cursor: pointer; transition: color 0.15s ease, border-color 0.15s ease;
+            background: transparent; border: none; border-bottom: 3px solid transparent; margin-bottom: -2px;
+            color: var(--metin-soft); font-family: inherit; font-size: 1rem; font-weight: 600;
+            padding: 12px 18px; cursor: pointer; transition: color 0.15s ease, border-color 0.15s ease;
         }
         .tab-btn:hover { color: var(--metin); }
         .tab-btn.aktif { color: var(--mavi); border-bottom-color: var(--mavi); }
@@ -89,57 +94,58 @@
         .tab-panel.aktif { display: block; animation: belir 0.18s ease; }
         @keyframes belir { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
 
-        /* Bölüm kartları (kompakt) */
+        /* Bölüm kartları (ferah) */
         .kart-bolum {
             background-color: var(--bg-kart); border-left: 4px solid var(--mavi);
-            border-radius: 0 8px 8px 0; padding: 16px 18px; margin-bottom: 18px;
+            border-radius: 8px; box-shadow: var(--golge); padding: 22px 26px; margin-bottom: 22px;
         }
         .kart-bolum.mauve { border-left-color: var(--mauve); }
-        .kart-bolum.peach { border-left-color: var(--peach); }
+        .kart-bolum.peach { border-left-color: var(--accent); }
         .kart-bolum.pink  { border-left-color: var(--kirmizi); }
         .kart-bolum.green { border-left-color: var(--yesil); }
-        .bolum-ust { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
-        .bolum-ust h3 { color: var(--isim); font-size: 1.1rem; margin: 0; }
+        .bolum-ust { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; margin-bottom: 16px; }
+        .bolum-ust h3 { color: var(--isim); font-size: 1.15rem; margin: 0; }
 
         /* KPI kartları */
-        .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-bottom: 18px; }
-        .kpi-kart { background-color: var(--bg-kart); border-left: 4px solid var(--yesil); padding: 14px 16px; border-radius: 0 8px 8px 0; }
-        .kpi-kart.uyari { border-left-color: var(--kirmizi); }
+        .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 16px; margin-bottom: 22px; }
+        .kpi-kart { background-color: var(--bg-kart); border-left: 4px solid var(--yesil); padding: 18px 22px; border-radius: 8px; box-shadow: var(--golge); }
+        .kpi-kart.uyari { border-left-color: var(--accent); }
         .kpi-kart.bilgi { border-left-color: var(--mavi); }
-        .kpi-kart.erozyon { border-left-color: var(--peach); }
-        .kpi-etiket { color: var(--metin-soft); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 6px; }
-        .kpi-deger { color: var(--isim); font-size: 1.6rem; font-weight: bold; line-height: 1.1; }
-        .kpi-not { color: var(--metin-soft); font-size: 0.78rem; margin-top: 5px; }
+        .kpi-kart.erozyon { border-left-color: var(--accent); }
+        .kpi-etiket { color: var(--metin-soft); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 8px; }
+        .kpi-deger { color: var(--isim); font-size: 1.7rem; font-weight: 700; line-height: 1.1; }
+        .kpi-not { color: var(--metin-soft); font-size: 0.8rem; margin-top: 6px; }
 
-        /* Tablolar (kompakt) */
-        .fin-tablo { width: 100%; border-collapse: collapse; background-color: var(--bg-kart); border-radius: 8px; overflow: hidden; margin-bottom: 6px; font-size: 0.9rem; }
-        .fin-tablo thead th { background-color: var(--kenar); color: var(--metin); text-align: left; padding: 8px 12px; font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.04em; }
-        .fin-tablo tbody td { padding: 8px 12px; border-top: 1px solid var(--kenar); color: var(--metin-soft); }
+        /* Tablolar (ferah) */
+        .fin-tablo { width: 100%; border-collapse: collapse; background-color: var(--bg-kart); border-radius: 8px; overflow: hidden; margin-bottom: 6px; font-size: 0.92rem; }
+        .fin-tablo thead th { background-color: var(--tablo-head); color: var(--metin-soft); text-align: left; padding: 11px 16px; font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.04em; }
+        .fin-tablo tbody td { padding: 12px 16px; border-top: 1px solid var(--kenar); color: var(--metin); }
         .fin-tablo tbody tr:hover td { background-color: var(--hover); }
+        .fin-tablo tbody tr.kritik td { color: var(--kirmizi); font-weight: 600; }
         .sag { text-align: right; font-variant-numeric: tabular-nums; }
         .tutar { color: var(--mono); font-family: monospace; }
         .tutar.eksi { color: var(--kirmizi); }
-        .musteri-ad { color: var(--isim); }
+        .musteri-ad { color: var(--isim); font-weight: 500; }
         .mono { font-family: monospace; color: var(--metin-soft); }
 
         /* Rozetler */
-        .rozet { display: inline-block; padding: 2px 9px; border-radius: 999px; font-size: 0.76rem; font-weight: bold; white-space: nowrap; }
-        .rozet.valid, .rozet.delivered, .rozet.low, .rozet.ok { background-color: rgba(166,227,161,0.18); color: var(--yesil); }
-        .rozet.pending, .rozet.bekliyor, .rozet.medium, .rozet.out_for_delivery { background-color: rgba(249,226,175,0.18); color: var(--sari); }
-        .rozet.invalid, .rozet.uyumsuz, .rozet.high, .rozet.port_customs_hold, .rozet.below, .rozet.exception { background-color: rgba(243,139,168,0.18); color: var(--kirmizi); }
-        .rozet.na { background-color: rgba(166,173,200,0.15); color: var(--metin-soft); }
-        .rozet.alici, .rozet.in_transit { background-color: rgba(137,180,250,0.16); color: var(--mavi); }
-        .rozet.satici, .rozet.threepl_warehouse { background-color: rgba(203,166,247,0.16); color: var(--mauve); }
+        .rozet { display: inline-block; padding: 3px 10px; border-radius: 999px; font-size: 0.76rem; font-weight: 600; white-space: nowrap; }
+        .rozet.valid, .rozet.delivered, .rozet.low, .rozet.ok { background-color: rgba(40,167,69,0.12); color: #1e7e34; }
+        .rozet.pending, .rozet.bekliyor, .rozet.medium, .rozet.out_for_delivery { background-color: rgba(232,146,12,0.14); color: #b06f08; }
+        .rozet.invalid, .rozet.uyumsuz, .rozet.high, .rozet.port_customs_hold, .rozet.below, .rozet.exception { background-color: rgba(220,53,69,0.12); color: #c82333; }
+        .rozet.na { background-color: rgba(108,117,125,0.12); color: #6c757d; }
+        .rozet.alici, .rozet.in_transit { background-color: rgba(29,78,137,0.12); color: #163e6e; }
+        .rozet.satici, .rozet.threepl_warehouse { background-color: rgba(111,66,193,0.12); color: #59359a; }
 
-        .kaynak-rozet { display: inline-block; font-size: 0.76rem; padding: 2px 9px; border-radius: 999px; background-color: rgba(249,226,175,0.15); color: var(--sari); }
-        .kaynak-rozet.canli { background-color: rgba(166,227,161,0.18); color: var(--yesil); }
+        .kaynak-rozet { display: inline-block; font-size: 0.76rem; padding: 3px 10px; border-radius: 999px; background-color: rgba(232,146,12,0.13); color: #b06f08; }
+        .kaynak-rozet.canli { background-color: rgba(40,167,69,0.12); color: #1e7e34; }
 
-        .taslak-onizleme { width: 100%; min-height: 140px; margin-top: 10px; background-color: var(--bg); color: var(--metin); border: 1px solid var(--kenar); border-radius: 8px; padding: 12px; font-family: inherit; font-size: 0.9rem; line-height: 1.5; resize: vertical; display: none; }
+        .taslak-onizleme { width: 100%; min-height: 150px; margin-top: 12px; background-color: var(--bg); color: var(--metin); border: 1px solid var(--kenar); border-radius: 8px; padding: 14px; font-family: inherit; font-size: 0.9rem; line-height: 1.5; resize: vertical; display: none; }
         .taslak-onizleme.acik { display: block; }
-        .ipucu { color: var(--metin-soft); font-size: 0.85rem; margin-bottom: 10px; }
-        .dipnot { color: var(--metin-dim); font-size: 0.82rem; margin-top: 28px; }
+        .ipucu { color: var(--metin-soft); font-size: 0.87rem; margin-bottom: 12px; }
+        .dipnot { color: var(--metin-dim); font-size: 0.82rem; margin-top: 32px; }
         a { color: var(--mavi); }
-        .tablo-ara-baslik { color: var(--isim); font-weight: bold; margin: 14px 0 8px 2px; }
+        .tablo-ara-baslik { color: var(--isim); font-weight: 600; margin: 18px 0 10px 2px; }
     </style>
 </head>
 <body>
@@ -215,6 +221,32 @@
                 <thead><tr><th>#</th><th>Müşteri</th><th class="sag">Ciro</th><th class="sag">Ort. İskonto</th><th class="sag">İskonto (€)</th></tr></thead>
                 <tbody id="top10Body"></tbody>
             </table>
+        </div>
+
+        <div class="kart-bolum green">
+            <div class="bolum-ust">
+                <h3>Yaşlandırma Raporu · Temizlik</h3>
+                <span class="kaynak-rozet">0-30 / 31-60 / 61-90 / 90+</span>
+            </div>
+
+            <table class="fin-tablo" style="margin-bottom:14px;">
+                <thead><tr><th>Yaş Kovası</th><th class="sag">Fatura Adedi</th><th class="sag">Tutar</th><th class="sag">Pay</th></tr></thead>
+                <tbody id="agingBody"></tbody>
+            </table>
+
+            <div class="tablo-ara-baslik">Otomatik Kapatma Önerisi · Auto-Closeable (&lt; 5 € &amp; &gt; 30 gün)</div>
+            <table class="fin-tablo" style="margin-bottom:14px;">
+                <thead><tr><th>Fatura</th><th>Müşteri</th><th class="sag">Tutar</th><th class="sag">Yaş (gün)</th><th class="sag">Durum</th></tr></thead>
+                <tbody id="writeoffBody"></tbody>
+            </table>
+
+            <div class="tablo-ara-baslik">Idle / Unpaid Receivables (90+ gün)</div>
+            <div class="ipucu"><strong>Bildirim Gönder</strong>, ilgili müşteri için tahsilat/mutabakat taslağını mail uygulamanızda açar.</div>
+            <table class="fin-tablo">
+                <thead><tr><th>Fatura</th><th>Müşteri</th><th class="sag">Tutar</th><th class="sag">Yaş (gün)</th><th>Son Mutabakat</th><th class="sag">İşlem</th></tr></thead>
+                <tbody id="idleBody"></tbody>
+            </table>
+            <textarea id="taslakOnizlemeAlacak" class="taslak-onizleme" readonly></textarea>
         </div>
 
         <div class="kart-bolum pink">
@@ -389,6 +421,17 @@
         exceptions: [
             { id: 'SHP-1001', tur: 'CUSTOMS_HOLD_EXCEEDED', saat: 96, konum: 'Rotterdam Port' },
         ],
+        invoices: [
+            { no: 'INV-2026-0188', musteri: 'AS Concept SRL', tutar: 14250, gun: 12, email: 'finance@asconcept.ro', sonMutabakat: '2026-02-10' },
+            { no: 'INV-2026-0185', musteri: 'Telamor Retail BV', tutar: 8600, gun: 24, email: 'ar@telamor.nl', sonMutabakat: '2026-02-15' },
+            { no: 'INV-2026-0170', musteri: 'Home Deco BV', tutar: 5200, gun: 44, email: 'pay@homedeco.nl', sonMutabakat: '2026-01-20' },
+            { no: 'INV-2026-0162', musteri: 'Maison Rideau SARL', tutar: 3100, gun: 58, email: 'compta@maisonrideau.fr', sonMutabakat: '2026-01-12' },
+            { no: 'INV-2026-0151', musteri: 'Dekor GmbH', tutar: 9450, gun: 74, email: 'buchhaltung@dekor.de', sonMutabakat: '2025-12-30' },
+            { no: 'INV-2026-0149', musteri: 'Stof & Co', tutar: 2.40, gun: 81, email: 'info@stof.be', sonMutabakat: '2025-12-22' },
+            { no: 'INV-2025-0992', musteri: 'Perde Dünyası', tutar: 11800, gun: 118, email: 'muhasebe@perdedunyasi.com.tr', sonMutabakat: '2025-10-30' },
+            { no: 'INV-2025-0981', musteri: 'Casa Tessuti', tutar: 4.10, gun: 134, email: 'amministrazione@casatessuti.it', sonMutabakat: '2025-10-12' },
+            { no: 'INV-2025-0975', musteri: 'Living Fabrics', tutar: 6750, gun: 152, email: 'ap@livingfabrics.co.uk', sonMutabakat: '2025-09-28' },
+        ],
     };
     const DURUM_METIN = {
         valid: 'Valid', invalid: 'Invalid', pending: 'Pending', na: 'Kapsam dışı',
@@ -396,6 +439,7 @@
         low: 'Düşük', medium: 'Orta', high: 'Yüksek', below: 'Altında', ok: 'Yeterli',
         in_transit: 'Yolda', port_customs_hold: 'Gümrükte', threepl_warehouse: '3PL Depo',
         out_for_delivery: 'Dağıtımda', delivered: 'Teslim', exception: 'İstisna',
+        auto_close: 'Auto-Closeable', idle: 'Idle',
     };
     const metin = (k) => DURUM_METIN[k] || k;
 
@@ -442,6 +486,80 @@
                 <button class="btn pink kucuk" data-gonder="${i}">Bildirim Gönder</button>
             </td></tr>`).join('');
     }
+
+    // ---------- Yaşlandırma (Aging) ----------
+    function computeAging(invs) {
+        const kovalar = {
+            '0-30': { ad: '0-30', adet: 0, tutar: 0 },
+            '31-60': { ad: '31-60', adet: 0, tutar: 0 },
+            '61-90': { ad: '61-90', adet: 0, tutar: 0 },
+            '90+': { ad: '90+', adet: 0, tutar: 0 },
+        };
+        const writeoff = [], idle = [];
+        invs.forEach(inv => {
+            const key = inv.gun <= 30 ? '0-30' : inv.gun <= 60 ? '31-60' : inv.gun <= 90 ? '61-90' : '90+';
+            kovalar[key].adet++; kovalar[key].tutar += inv.tutar;
+            if (inv.tutar < 5 && inv.gun > 30) writeoff.push(inv);   // önemsiz bakiye → otomatik kapatma
+            if (inv.gun > 90) idle.push(inv);                         // unutulan alacak
+        });
+        return { kovalar, writeoff, idle };
+    }
+    function renderAging(res) {
+        const koleksiyon = Object.values(res.kovalar);
+        const toplam = koleksiyon.reduce((a, k) => a + k.tutar, 0) || 1;
+        document.getElementById('agingBody').innerHTML = koleksiyon.map(k => `
+            <tr class="${k.ad === '90+' ? 'kritik' : ''}">
+                <td>${k.ad} gün</td><td class="sag">${k.adet}</td>
+                <td class="sag tutar">${para.format(k.tutar)}</td>
+                <td class="sag">${yuzde2(k.tutar / toplam)}</td></tr>`).join('');
+
+        document.getElementById('writeoffBody').innerHTML = res.writeoff.length ? res.writeoff.map(inv => `
+            <tr><td class="mono">${esc(inv.no)}</td><td class="musteri-ad">${esc(inv.musteri)}</td>
+            <td class="sag tutar">${para.format(inv.tutar)}</td><td class="sag">${inv.gun}</td>
+            <td class="sag"><span class="rozet ok">${metin('auto_close')}</span></td></tr>`).join('')
+            : `<tr><td colspan="5" style="color:var(--metin-soft);">Otomatik kapatılabilir kalem yok.</td></tr>`;
+
+        window.__alacaklar = res.idle;
+        document.getElementById('idleBody').innerHTML = res.idle.length ? res.idle.map((inv, i) => `
+            <tr class="kritik"><td class="mono">${esc(inv.no)}</td><td class="musteri-ad">${esc(inv.musteri)}</td>
+            <td class="sag tutar">${para.format(inv.tutar)}</td><td class="sag">${inv.gun}</td>
+            <td>${esc(inv.sonMutabakat || '—')}</td>
+            <td class="sag" style="white-space:nowrap;">
+                <button class="btn hayalet kucuk" data-alacak-oni="${i}">Taslağı Gör</button>
+                <button class="btn pink kucuk" data-alacak-gon="${i}">Bildirim Gönder</button>
+            </td></tr>`).join('')
+            : `<tr><td colspan="6" style="color:var(--yesil);">90+ gün açık alacak yok.</td></tr>`;
+    }
+    function taslakAlacak(inv) {
+        const konu = `Ödeme Hatırlatması — ${inv.no}`;
+        const govde =
+`Sayın ${inv.musteri} yetkilisi,
+
+${inv.no} numaralı ${para.format(inv.tutar)} tutarındaki faturamız ${inv.gun} gündür açık görünmektedir
+(son mutabakat: ${inv.sonMutabakat || '—'}).
+İlgili ödemenin planlanması veya mutabakat için tarafımıza dönüş yapmanızı rica ederiz.
+
+Saygılarımızla,
+Telamor Europe BV — Mali İşler`;
+        return { konu, govde };
+    }
+    document.getElementById('idleBody').addEventListener('click', (e) => {
+        const oni = e.target.getAttribute('data-alacak-oni');
+        const gon = e.target.getAttribute('data-alacak-gon');
+        const list = window.__alacaklar || [];
+        if (oni) {
+            const inv = list[+oni]; if (!inv) return;
+            const { konu, govde } = taslakAlacak(inv);
+            const ta = document.getElementById('taslakOnizlemeAlacak');
+            ta.value = `Kime: ${inv.email || '(e-posta yok)'}\nKonu: ${konu}\n\n${govde}`;
+            ta.classList.add('acik'); ta.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+        if (gon) {
+            const inv = list[+gon]; if (!inv) return;
+            const { konu, govde } = taslakAlacak(inv);
+            window.location.href = `mailto:${encodeURIComponent(inv.email || '')}?subject=${encodeURIComponent(konu)}&body=${encodeURIComponent(govde)}`;
+        }
+    });
 
     // ---------- Render: Procurement ----------
     function renderSuppliers(list) {
@@ -509,6 +627,11 @@
         const yuksekIsk = DEMO.top10.filter(c => c.ort > 0.15).length;
         if (yuksekIsk > 0)
             cipler.push({ sinif: 'peach', metin: '%15 üstü iskonto', sayi: yuksekIsk, tab: 'financial' });
+        const aging = computeAging(DEMO.invoices);
+        if (aging.idle.length > 0)
+            cipler.push({ sinif: 'kirmizi', metin: 'Idle/Unpaid (90+ gün)', sayi: aging.idle.length, tab: 'financial' });
+        if (aging.writeoff.length > 0)
+            cipler.push({ sinif: 'sari', metin: 'Auto-Closeable kalem', sayi: aging.writeoff.length, tab: 'financial' });
         const gumruk = DEMO.exceptions.length;
         if (gumruk > 0)
             cipler.push({ sinif: 'kirmizi', metin: 'Gümrük beklemesi', sayi: gumruk, tab: 'logistics' });
@@ -635,6 +758,7 @@ Telamor Europe BV — Mali İşler`;
         renderIskonto(DEMO.iskonto);
         renderTop10(DEMO.top10);
         window.__mutabakat = DEMO.mutabakat; renderMutabakat(DEMO.mutabakat);
+        renderAging(computeAging(DEMO.invoices));
         renderKpis('procKpiGrid', [
             { etiket: 'Tedarikçi Sayısı', deger: String(DEMO.suppliers.length), sinif: 'bilgi' },
             { etiket: 'Yüksek Riskli', deger: String(DEMO.suppliers.filter(s => s.risk === 'high').length), sinif: 'uyari' },
