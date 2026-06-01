@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="tr">
 <head>
@@ -60,17 +59,17 @@
         }
 
         /* ===========================================================
-           Modül 1 — Financial Controller paneli
+           Modül 1 — Financial Controller · Karar Destek Sistemi
            (mevcut Catppuccin Mocha paleti ve kart diline sadık)
            =========================================================== */
         .bolum-ayrac {
-            max-width: 800px;
+            max-width: 900px;
             margin: 55px auto 30px;
             border: none;
             border-top: 1px solid #45475a;
         }
         .panel-konteyner {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             text-align: left;
         }
@@ -82,141 +81,129 @@
             flex-wrap: wrap;
             margin-bottom: 6px;
         }
-        .panel-baslik h2 {
-            color: #89b4fa;
-            font-size: 1.6rem;
-            margin: 0;
-        }
+        .panel-baslik h2 { color: #89b4fa; font-size: 1.6rem; margin: 0; }
         .panel-baslik .yol { font-size: 0.9rem; }
-        .panel-aciklama {
-            color: #a6adc8;
-            font-size: 0.98rem;
-            margin-bottom: 22px;
-        }
+        .panel-aciklama { color: #a6adc8; font-size: 0.98rem; margin-bottom: 22px; }
 
-        /* Kontroller (API tabanı / anahtar / dönem) */
+        /* Bölüm kartları (kart içi sekme hissi) */
+        .kart-bolum {
+            background-color: #313244;
+            border-left: 5px solid #89b4fa;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 22px 24px;
+            margin-bottom: 26px;
+        }
+        .kart-bolum.mauve { border-left-color: #cba6f7; }
+        .kart-bolum.peach { border-left-color: #fab387; }
+        .kart-bolum.pink  { border-left-color: #f38ba8; }
+        .bolum-ust {
+            display: flex; align-items: center; justify-content: space-between;
+            gap: 12px; flex-wrap: wrap; margin-bottom: 16px;
+        }
+        .bolum-ust h3 { color: #f5e0dc; font-size: 1.2rem; margin: 0; }
+
+        /* Kontroller */
         .kontrol-kart {
             background-color: #313244;
             border-left: 5px solid #cba6f7;
             padding: 16px 20px;
             border-radius: 0 8px 8px 0;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            display: flex;
-            flex-wrap: wrap;
-            gap: 14px;
-            align-items: flex-end;
-            margin-bottom: 22px;
+            display: flex; flex-wrap: wrap; gap: 14px; align-items: flex-end;
+            margin-bottom: 26px;
         }
         .alan { display: flex; flex-direction: column; gap: 5px; flex: 1 1 150px; }
         .alan label { font-size: 0.78rem; color: #a6adc8; text-transform: uppercase; letter-spacing: 0.04em; }
         .alan input {
-            background-color: #1e1e2e;
-            color: #cdd6f4;
-            border: 1px solid #45475a;
-            border-radius: 6px;
-            padding: 9px 11px;
-            font-family: inherit;
-            font-size: 0.95rem;
+            background-color: #1e1e2e; color: #cdd6f4;
+            border: 1px solid #45475a; border-radius: 6px;
+            padding: 9px 11px; font-family: inherit; font-size: 0.95rem;
         }
         .alan input:focus { outline: none; border-color: #89b4fa; }
+
         .btn {
-            background-color: #89b4fa;
-            color: #1e1e2e;
-            border: none;
-            border-radius: 6px;
-            padding: 10px 18px;
-            font-family: inherit;
-            font-size: 0.95rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: filter 0.15s ease, transform 0.05s ease;
+            background-color: #89b4fa; color: #1e1e2e; border: none; border-radius: 6px;
+            padding: 10px 18px; font-family: inherit; font-size: 0.95rem; font-weight: bold;
+            cursor: pointer; transition: filter 0.15s ease, transform 0.05s ease;
         }
         .btn:hover { filter: brightness(1.1); }
         .btn:active { transform: translateY(1px); }
-        .btn.ikincil { background-color: #f38ba8; }
+        .btn:disabled { opacity: 0.6; cursor: progress; }
+        .btn.mauve { background-color: #cba6f7; }
+        .btn.peach { background-color: #fab387; }
+        .btn.pink  { background-color: #f38ba8; }
+        .btn.kucuk { padding: 6px 12px; font-size: 0.85rem; }
+        .btn.hayalet { background-color: transparent; color: #89b4fa; border: 1px solid #45475a; }
+        .btn.hayalet:hover { border-color: #89b4fa; filter: none; }
 
         /* KPI kartları */
         .kpi-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-            gap: 15px;
-            margin-bottom: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+            gap: 15px; margin-bottom: 26px;
         }
         .kpi-kart {
-            background-color: #313244;
-            border-left: 5px solid #a6e3a1;
-            padding: 18px 20px;
-            border-radius: 0 8px 8px 0;
+            background-color: #313244; border-left: 5px solid #a6e3a1;
+            padding: 18px 20px; border-radius: 0 8px 8px 0;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
         .kpi-kart.uyari { border-left-color: #f38ba8; }
         .kpi-kart.bilgi { border-left-color: #89b4fa; }
+        .kpi-kart.erozyon { border-left-color: #fab387; }
         .kpi-etiket {
-            color: #a6adc8;
-            font-size: 0.82rem;
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
-            margin-bottom: 8px;
+            color: #a6adc8; font-size: 0.82rem; text-transform: uppercase;
+            letter-spacing: 0.04em; margin-bottom: 8px;
         }
         .kpi-deger { color: #f5e0dc; font-size: 1.85rem; font-weight: bold; line-height: 1.1; }
         .kpi-not { color: #bac2de; font-size: 0.8rem; margin-top: 6px; }
 
         /* Tablolar */
-        .tablo-baslik {
-            color: #f5e0dc;
-            font-size: 1.15rem;
-            font-weight: bold;
-            margin: 0 0 12px 2px;
-        }
         .fin-tablo {
-            width: 100%;
-            border-collapse: collapse;
-            background-color: #313244;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            margin-bottom: 30px;
-            font-size: 0.95rem;
+            width: 100%; border-collapse: collapse; background-color: #313244;
+            border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 8px; font-size: 0.93rem;
         }
         .fin-tablo thead th {
-            background-color: #45475a;
-            color: #cdd6f4;
-            text-align: left;
-            padding: 12px 16px;
-            font-size: 0.82rem;
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
+            background-color: #45475a; color: #cdd6f4; text-align: left;
+            padding: 11px 14px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em;
         }
-        .fin-tablo tbody td {
-            padding: 12px 16px;
-            border-top: 1px solid #45475a;
-            color: #bac2de;
-        }
+        .fin-tablo tbody td { padding: 11px 14px; border-top: 1px solid #45475a; color: #bac2de; }
         .fin-tablo tbody tr:hover td { background-color: #3a3c52; }
         .sag { text-align: right; font-variant-numeric: tabular-nums; }
         .tutar { color: #f9e2af; font-family: monospace; }
+        .tutar.eksi { color: #f38ba8; }
+        .musteri-ad { color: #f5e0dc; }
+        .mono { font-family: monospace; color: #bac2de; }
 
         /* Durum rozetleri */
         .rozet {
-            display: inline-block;
-            padding: 3px 10px;
-            border-radius: 999px;
-            font-size: 0.78rem;
-            font-weight: bold;
+            display: inline-block; padding: 3px 10px; border-radius: 999px;
+            font-size: 0.78rem; font-weight: bold; white-space: nowrap;
         }
-        .rozet.odendi { background-color: rgba(166,227,161,0.18); color: #a6e3a1; }
-        .rozet.acik   { background-color: rgba(137,180,250,0.18); color: #89b4fa; }
-        .rozet.vadesi { background-color: rgba(243,139,168,0.18); color: #f38ba8; }
+        .rozet.valid    { background-color: rgba(166,227,161,0.18); color: #a6e3a1; }
+        .rozet.pending  { background-color: rgba(249,226,175,0.18); color: #f9e2af; }
+        .rozet.invalid  { background-color: rgba(243,139,168,0.18); color: #f38ba8; }
+        .rozet.na       { background-color: rgba(166,173,200,0.15); color: #a6adc8; }
+        .rozet.uyumsuz  { background-color: rgba(243,139,168,0.18); color: #f38ba8; }
+        .rozet.bekliyor { background-color: rgba(249,226,175,0.18); color: #f9e2af; }
+        .rozet.alici    { background-color: rgba(137,180,250,0.16); color: #89b4fa; }
+        .rozet.satici   { background-color: rgba(203,166,247,0.16); color: #cba6f7; }
 
         .kaynak-rozet {
-            display: inline-block;
-            font-size: 0.78rem;
-            padding: 3px 10px;
-            border-radius: 999px;
-            background-color: rgba(249,226,175,0.15);
-            color: #f9e2af;
+            display: inline-block; font-size: 0.78rem; padding: 3px 10px; border-radius: 999px;
+            background-color: rgba(249,226,175,0.15); color: #f9e2af;
         }
         .kaynak-rozet.canli { background-color: rgba(166,227,161,0.18); color: #a6e3a1; }
+
+        /* Taslak önizleme */
+        .taslak-onizleme {
+            width: 100%; min-height: 150px; margin-top: 12px;
+            background-color: #1e1e2e; color: #cdd6f4; border: 1px solid #45475a;
+            border-radius: 8px; padding: 14px; font-family: inherit; font-size: 0.92rem;
+            line-height: 1.5; resize: vertical; display: none; box-sizing: border-box;
+        }
+        .taslak-onizleme.acik { display: block; }
 
         .dipnot { color: #6c7086; font-size: 0.85rem; margin-top: 40px; }
         a { color: #89b4fa; }
@@ -226,9 +213,9 @@
 
     <h1>Maestro Platform</h1>
     <div class="alt-baslik">Sistem Mimarisi ve Bileşen Haritası</div>
-    
+
     <div class="mimari-konteyner">
-        
+
         <div class="bilesen-kart">
             <div class="ust-satir">
                 <span class="isim">1. Financial Controller</span>
@@ -272,20 +259,21 @@
     </div>
 
     <!-- ============================================================
-         Modül 1 — Financial Controller paneli
+         Modül 1 — Financial Controller · Karar Destek Sistemi
          ============================================================ -->
     <hr class="bolum-ayrac">
 
     <div class="panel-konteyner">
         <div class="panel-baslik">
-            <h2>Modül 1 · Financial Controller</h2>
+            <h2>Modül 1 · Financial Controller — Karar Destek Sistemi</h2>
             <span class="yol">/api/v1/financial</span>
         </div>
         <div class="panel-aciklama">
-            Dönem KPI'ları, alacak yaşlandırması ve fatura özeti.
+            KPI'lar, VAT uyumu, iskonto erozyonu ve cari mutabakat &amp; bildirim.
             <span id="kaynakRozet" class="kaynak-rozet">demo verisi</span>
         </div>
 
+        <!-- Kontroller -->
         <div class="kontrol-kart">
             <div class="alan">
                 <label for="apiBase">API tabanı</label>
@@ -293,99 +281,300 @@
             </div>
             <div class="alan">
                 <label for="apiKey">X-Api-Key</label>
-                <input id="apiKey" type="password" placeholder="API anahtarı">
+                <input id="apiKey" type="password" placeholder="API anahtarı (boş bırakılabilir)">
             </div>
             <div class="alan" style="flex:0 0 120px;">
                 <label for="donem">Dönem</label>
                 <input id="donem" type="text" value="2026-02">
             </div>
             <button class="btn" id="yenileBtn">Yenile</button>
-            <button class="btn ikincil" id="dunningBtn" title="POST /automation/trigger-dunning">Hatırlatma gönder</button>
         </div>
 
-        <!-- KPI kartları -->
+        <!-- (1) KPI Paneli -->
         <div class="kpi-grid" id="kpiGrid"><!-- JS dolduruyor --></div>
 
-        <!-- Yaşlandırma tablosu -->
-        <div class="tablo-baslik">Alacak Yaşlandırması (Aging)</div>
-        <table class="fin-tablo">
-            <thead>
-                <tr><th>Kova</th><th class="sag">Tutar</th><th class="sag">Pay</th></tr>
-            </thead>
-            <tbody id="agingBody"><!-- JS dolduruyor --></tbody>
-        </table>
+        <!-- (2) VAT Compliance -->
+        <div class="kart-bolum mauve">
+            <div class="bolum-ust">
+                <h3>VAT Compliance · VIES Doğrulama</h3>
+                <button class="btn mauve" id="viesBtn">Run Weekly VAT Sync</button>
+            </div>
+            <table class="fin-tablo">
+                <thead>
+                    <tr><th>Müşteri / Tedarikçi</th><th>VAT No</th><th>Ülke</th><th class="sag">Durum</th></tr>
+                </thead>
+                <tbody id="viesBody"><!-- JS dolduruyor --></tbody>
+            </table>
+        </div>
 
-        <!-- Fatura listesi -->
-        <div class="tablo-baslik">Son Faturalar</div>
-        <table class="fin-tablo">
-            <thead>
-                <tr><th>Fatura</th><th>Müşteri</th><th class="sag">Tutar</th><th class="sag">Durum</th></tr>
-            </thead>
-            <tbody id="faturaBody"><!-- JS dolduruyor --></tbody>
-        </table>
+        <!-- (3) İskonto Raporlama Merkezi -->
+        <div class="kart-bolum peach">
+            <div class="bolum-ust">
+                <h3>İskonto Raporlama Merkezi</h3>
+            </div>
+
+            <div class="kpi-grid" style="margin-bottom:18px;">
+                <div class="kpi-kart erozyon">
+                    <div class="kpi-etiket">Toplam İskonto Maliyeti (Erozyon)</div>
+                    <div class="kpi-deger" id="erozyonDeger">—</div>
+                    <div class="kpi-not">Dönem içi marj erozyonu</div>
+                </div>
+            </div>
+
+            <table class="fin-tablo" style="margin-bottom:22px;">
+                <thead>
+                    <tr><th>İskonto Dilimi</th><th class="sag">Ciro</th><th class="sag">İskonto (€)</th><th class="sag">Pay</th></tr>
+                </thead>
+                <tbody id="iskontoBody"><!-- JS dolduruyor --></tbody>
+            </table>
+
+            <div style="color:#f5e0dc;font-weight:bold;margin:0 0 10px 2px;">En Yüksek İskonto Alan 10 Müşteri</div>
+            <table class="fin-tablo">
+                <thead>
+                    <tr><th>#</th><th>Müşteri</th><th class="sag">Ciro</th><th class="sag">Ort. İskonto</th><th class="sag">İskonto (€)</th></tr>
+                </thead>
+                <tbody id="top10Body"><!-- JS dolduruyor --></tbody>
+            </table>
+        </div>
+
+        <!-- (4) Mutabakat & Bildirim Merkezi -->
+        <div class="kart-bolum pink">
+            <div class="bolum-ust">
+                <h3>Mutabakat &amp; Bildirim Merkezi</h3>
+                <span class="kaynak-rozet">Uyumsuz / Bekleyen taraflar</span>
+            </div>
+            <div style="color:#a6adc8;font-size:0.92rem;margin-bottom:14px;">
+                Mutabakatı onaylanmamış cari hesaplar. <strong>Bildirim Gönder</strong>, sistemden
+                veri çeken standart taslağı varsayılan mail uygulamanızda açar.
+            </div>
+            <table class="fin-tablo">
+                <thead>
+                    <tr>
+                        <th>Taraf</th><th>Tip</th><th class="sag">Cari Bakiye</th>
+                        <th>Tarih</th><th>Durum</th><th class="sag">İşlem</th>
+                    </tr>
+                </thead>
+                <tbody id="mutabakatBody"><!-- JS dolduruyor --></tbody>
+            </table>
+            <textarea id="taslakOnizleme" class="taslak-onizleme" readonly></textarea>
+        </div>
     </div>
 
     <div class="dipnot">
-        Maestro Platform · Modül 1 paneli — API erişilebilirse canlı, değilse demo verisi gösterir.
+        Maestro Platform · Modül 1 Karar Destek paneli — API erişilebilirse canlı, değilse demo verisi gösterir.
+        VIES senkronizasyonu istemci tarafında bir simülasyondur.
     </div>
 
     <script>
-        // ---- Para / yüzde biçimlendirme ----
+        // ---------- Biçimlendirme ----------
         const para = new Intl.NumberFormat('tr-TR', { style: 'currency', currency: 'EUR' });
+        const sayi = new Intl.NumberFormat('tr-TR');
         const yuzde = (v) => (v * 100).toFixed(1).replace('.', ',') + '%';
+        const esc = (s) => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
-        // ---- Demo (yedek) veri: API yoksa sayfa yine de dolu görünsün ----
+        // ---------- Esnek yanıt okuyucu (buckets | items | dizi | düz obje) ----------
+        function asArray(data) {
+            if (!data) return [];
+            if (Array.isArray(data)) return data;
+            if (Array.isArray(data.items)) return data.items;
+            if (Array.isArray(data.rows)) return data.rows;
+            if (Array.isArray(data.results)) return data.results;
+            if (data.buckets && typeof data.buckets === 'object') {
+                return Object.entries(data.buckets).map(([k, v]) =>
+                    (v && typeof v === 'object') ? { bucket: k, ...v } : { bucket: k, value: v });
+            }
+            if (typeof data === 'object') return Object.entries(data).map(([k, v]) => ({ key: k, value: v }));
+            return [];
+        }
+        function asMap(data) {
+            if (!data) return {};
+            if (data.buckets && typeof data.buckets === 'object') return data.buckets;
+            if (Array.isArray(data.items)) {
+                const m = {}; data.items.forEach(it => { if (it && it.key != null) m[it.key] = it.value; }); return m;
+            }
+            if (typeof data === 'object' && !Array.isArray(data)) return data;
+            return {};
+        }
+
+        // ---------- Demo (yedek) veri ----------
         const DEMO = {
             kpis: [
-                { etiket: 'Dönem Geliri', deger: para.format(124500), sinif: 'bilgi' },
-                { etiket: 'Açık Alacak (AR)', deger: para.format(38200), sinif: 'bilgi' },
-                { etiket: 'Tahsilat Oranı', deger: '%86,0', sinif: '' },
-                { etiket: 'Vadesi Geçen', deger: para.format(9450), sinif: 'uyari', not: '61+ gün' },
+                { etiket: 'Yevmiye Hacmi', deger: sayi.format(1284) + ' kayıt', sinif: 'bilgi', not: 'Dönem içi yevmiye fişi' },
+                { etiket: 'Duran Varlık Değeri', deger: para.format(312500), sinif: 'bilgi', not: 'Net defter değeri' },
+                { etiket: 'VAT Durumu', deger: '2 bekliyor', sinif: 'uyari', not: '1 geçersiz · 2 onay bekliyor' },
             ],
-            aging: { '0-30': 21300, '31-60': 7450, '61+': 9450 },
-            faturalar: [
-                { no: 'INV-2026-0188', musteri: 'AS Concept (RO)', tutar: 14250, durum: 'acik' },
-                { no: 'INV-2026-0187', musteri: 'Telamor Retail (NL)', tutar: 8600, durum: 'odendi' },
-                { no: 'INV-2026-0181', musteri: 'Dekor Mağaza (DE)', tutar: 9450, durum: 'vadesi' },
-                { no: 'INV-2026-0179', musteri: 'Ahsen Tekstil (TR)', tutar: 22100, durum: 'odendi' },
+            vies: [
+                { ad: 'AS Concept SRL', vat: 'RO12345678', ulke: 'RO', eu: true, sonuc: 'valid' },
+                { ad: 'Telamor Retail BV', vat: 'NL004567890B01', ulke: 'NL', eu: true, sonuc: 'valid' },
+                { ad: 'Dekor GmbH', vat: 'DE811234567', ulke: 'DE', eu: true, sonuc: 'invalid' },
+                { ad: 'Maison Rideau SARL', vat: 'FR40303265045', ulke: 'FR', eu: true, sonuc: 'valid' },
+                { ad: 'Ahsen Tekstil', vat: 'TR1234567890', ulke: 'TR', eu: false, sonuc: 'na' },
+            ],
+            iskonto: {
+                '%0-5':   { ciro: 210000, iskonto: 5250 },
+                '%5-10':  { ciro: 145000, iskonto: 10875 },
+                '%10-15': { ciro: 88000,  iskonto: 11000 },
+                '%15+':   { ciro: 42000,  iskonto: 8400 },
+            },
+            top10: [
+                { ad: 'Dekor GmbH', ciro: 42000, ort: 0.182, iskonto: 7644 },
+                { ad: 'AS Concept SRL', ciro: 88000, ort: 0.125, iskonto: 11000 },
+                { ad: 'Maison Rideau SARL', ciro: 36000, ort: 0.150, iskonto: 5400 },
+                { ad: 'Perde Dünyası', ciro: 28000, ort: 0.160, iskonto: 4480 },
+                { ad: 'Home Deco BV', ciro: 24000, ort: 0.140, iskonto: 3360 },
+                { ad: 'Stof & Co', ciro: 21000, ort: 0.130, iskonto: 2730 },
+                { ad: 'Rideaux Plus', ciro: 18500, ort: 0.155, iskonto: 2868 },
+                { ad: 'Tekstil Pazarı', ciro: 16000, ort: 0.110, iskonto: 1760 },
+                { ad: 'Living Fabrics', ciro: 14000, ort: 0.120, iskonto: 1680 },
+                { ad: 'Casa Tessuti', ciro: 12500, ort: 0.135, iskonto: 1687 },
+            ],
+            mutabakat: [
+                { ad: 'AS Concept SRL', tip: 'alici', bakiye: 14250, tarih: '2026-02-28', durum: 'uyumsuz', email: 'finance@asconcept.ro' },
+                { ad: 'Dekor GmbH', tip: 'alici', bakiye: 9450, tarih: '2026-02-28', durum: 'bekliyor', email: 'buchhaltung@dekor.de' },
+                { ad: 'İplik Tedarik A.Ş.', tip: 'satici', bakiye: -6800, tarih: '2026-02-28', durum: 'uyumsuz', email: 'muhasebe@iplik.com.tr' },
+                { ad: 'Maison Rideau SARL', tip: 'alici', bakiye: 5200, tarih: '2026-02-28', durum: 'bekliyor', email: 'compta@maisonrideau.fr' },
+                { ad: 'Lojistik Ortağı BV', tip: 'satici', bakiye: -2150, tarih: '2026-02-28', durum: 'uyumsuz', email: 'ap@logipartner.nl' },
             ],
         };
-        const DURUM_ETIKET = { odendi: 'Ödendi', acik: 'Açık', vadesi: 'Vadesi geçti' };
 
-        // ---- DOM render ----
+        let viesState = [];
+
+        // ---------- Render ----------
         function renderKpis(list) {
             document.getElementById('kpiGrid').innerHTML = list.map(k => `
                 <div class="kpi-kart ${k.sinif || ''}">
-                    <div class="kpi-etiket">${k.etiket}</div>
-                    <div class="kpi-deger">${k.deger}</div>
-                    ${k.not ? `<div class="kpi-not">${k.not}</div>` : ''}
+                    <div class="kpi-etiket">${esc(k.etiket)}</div>
+                    <div class="kpi-deger">${esc(k.deger)}</div>
+                    ${k.not ? `<div class="kpi-not">${esc(k.not)}</div>` : ''}
                 </div>`).join('');
         }
-        function renderAging(aging) {
-            const toplam = Object.values(aging).reduce((a, b) => a + b, 0) || 1;
-            document.getElementById('agingBody').innerHTML = Object.entries(aging).map(([k, v]) => `
+
+        const VIES_ETIKET = { valid: 'Valid', invalid: 'Invalid', pending: 'Pending', na: 'Kapsam dışı' };
+        function renderVies() {
+            document.getElementById('viesBody').innerHTML = viesState.map(r => `
                 <tr>
-                    <td>${k} gün</td>
-                    <td class="sag tutar">${para.format(v)}</td>
-                    <td class="sag">${yuzde(v / toplam)}</td>
+                    <td class="musteri-ad">${esc(r.ad)}</td>
+                    <td class="mono">${esc(r.vat)}</td>
+                    <td>${esc(r.ulke)}</td>
+                    <td class="sag"><span class="rozet ${r.durum}">${VIES_ETIKET[r.durum] || r.durum}</span></td>
                 </tr>`).join('');
         }
-        function renderFaturalar(rows) {
-            document.getElementById('faturaBody').innerHTML = rows.map(f => `
+
+        function renderIskonto(map) {
+            const rows = Object.entries(map).map(([dilim, v]) => ({
+                dilim,
+                ciro: (v && typeof v === 'object') ? (v.ciro ?? v.revenue ?? 0) : 0,
+                iskonto: (v && typeof v === 'object') ? (v.iskonto ?? v.discount ?? 0) : Number(v) || 0,
+            }));
+            const toplamIskonto = rows.reduce((a, r) => a + r.iskonto, 0) || 1;
+            document.getElementById('iskontoBody').innerHTML = rows.map(r => `
                 <tr>
-                    <td style="font-family:monospace;color:#f9e2af;">${f.no}</td>
-                    <td>${f.musteri}</td>
-                    <td class="sag tutar">${para.format(f.tutar)}</td>
-                    <td class="sag"><span class="rozet ${f.durum}">${DURUM_ETIKET[f.durum] || f.durum}</span></td>
+                    <td>${esc(r.dilim)}</td>
+                    <td class="sag tutar">${para.format(r.ciro)}</td>
+                    <td class="sag tutar">${para.format(r.iskonto)}</td>
+                    <td class="sag">${yuzde(r.iskonto / toplamIskonto)}</td>
+                </tr>`).join('');
+            document.getElementById('erozyonDeger').textContent = para.format(rows.reduce((a, r) => a + r.iskonto, 0));
+        }
+
+        function renderTop10(list) {
+            document.getElementById('top10Body').innerHTML = list.slice(0, 10).map((c, i) => `
+                <tr>
+                    <td class="mono">${i + 1}</td>
+                    <td class="musteri-ad">${esc(c.ad)}</td>
+                    <td class="sag tutar">${para.format(c.ciro)}</td>
+                    <td class="sag">${yuzde(c.ort)}</td>
+                    <td class="sag tutar">${para.format(c.iskonto)}</td>
                 </tr>`).join('');
         }
+
+        const TIP_ETIKET = { alici: 'Alıcı', satici: 'Satıcı' };
+        const DURUM_ETIKET = { uyumsuz: 'Uyumsuz', bekliyor: 'Bekliyor' };
+        function renderMutabakat(list) {
+            document.getElementById('mutabakatBody').innerHTML = list.map((m, i) => {
+                const negatif = m.bakiye < 0;
+                return `
+                <tr>
+                    <td class="musteri-ad">${esc(m.ad)}</td>
+                    <td><span class="rozet ${m.tip}">${TIP_ETIKET[m.tip] || m.tip}</span></td>
+                    <td class="sag tutar ${negatif ? 'eksi' : ''}">${para.format(m.bakiye)}</td>
+                    <td>${esc(m.tarih)}</td>
+                    <td><span class="rozet ${m.durum}">${DURUM_ETIKET[m.durum] || m.durum}</span></td>
+                    <td class="sag" style="white-space:nowrap;">
+                        <button class="btn hayalet kucuk" data-onizle="${i}">Taslağı Gör</button>
+                        <button class="btn pink kucuk" data-gonder="${i}">Bildirim Gönder</button>
+                    </td>
+                </tr>`;
+            }).join('');
+        }
+
         function setKaynak(canli) {
             const r = document.getElementById('kaynakRozet');
             r.textContent = canli ? 'canlı API' : 'demo verisi';
             r.classList.toggle('canli', canli);
         }
 
-        // ---- API katmanı ----
+        // ---------- Mail taslağı (sistemden veri çeker) ----------
+        function bugun() { return new Date().toLocaleDateString('tr-TR'); }
+        function taslakUret(m) {
+            const tarih = m.tarih || bugun();
+            const mutlak = para.format(Math.abs(m.bakiye));
+            const konu = `Cari Hesap Mutabakatı — ${tarih}`;
+            const yon = (m.tip === 'satici') ? 'tarafınıza olan cari bakiyemiz' : 'tarafınıza ait cari bakiyemiz';
+            const tur = (m.bakiye < 0) ? 'borç' : 'alacak';
+            const govde =
+`Sayın ${m.ad} yetkilisi,
+
+${tarih} itibarıyla ${yon} ${mutlak} € (${tur}) olarak görülmektedir.
+Kayıtlarınızla mutabık olup olmadığını teyit etmenizi rica ederiz.
+
+Farklılık halinde dönem ekstresini paylaşabiliriz.
+
+Saygılarımızla,
+Telamor Europe BV — Mali İşler`;
+            return { konu, govde };
+        }
+        function mailtoLinki(m) {
+            const { konu, govde } = taslakUret(m);
+            const to = m.email || '';
+            return `mailto:${encodeURIComponent(to)}?subject=${encodeURIComponent(konu)}&body=${encodeURIComponent(govde)}`;
+        }
+
+        document.getElementById('mutabakatBody').addEventListener('click', (e) => {
+            const onizle = e.target.getAttribute('data-onizle');
+            const gonder = e.target.getAttribute('data-gonder');
+            const list = window.__mutabakat || [];
+            if (onizle) {
+                const m = list[+onizle]; if (!m) return;
+                const { konu, govde } = taslakUret(m);
+                const ta = document.getElementById('taslakOnizleme');
+                ta.value = `Kime: ${m.email || '(e-posta yok)'}\nKonu: ${konu}\n\n${govde}`;
+                ta.classList.add('acik');
+                ta.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+            if (gonder) {
+                const m = list[+gonder]; if (!m) return;
+                window.location.href = mailtoLinki(m);
+            }
+        });
+
+        // ---------- VIES senkron simülasyonu ----------
+        document.getElementById('viesBtn').addEventListener('click', () => {
+            const btn = document.getElementById('viesBtn');
+            btn.disabled = true; btn.textContent = 'Senkronize ediliyor…';
+            viesState.forEach(r => { if (r.eu !== false && r.durum !== 'na') r.durum = 'pending'; });
+            renderVies();
+            const hedef = viesState.filter(r => r.durum === 'pending');
+            let i = 0;
+            const tik = () => {
+                if (i >= hedef.length) { btn.disabled = false; btn.textContent = 'Run Weekly VAT Sync'; return; }
+                hedef[i].durum = hedef[i].sonuc || 'valid';
+                renderVies(); i++; setTimeout(tik, 450);
+            };
+            setTimeout(tik, 500);
+        });
+
+        // ---------- API ----------
         function apiHeaders() {
             const key = document.getElementById('apiKey').value.trim();
             return key ? { 'X-Api-Key': key } : {};
@@ -396,62 +585,48 @@
             if (!res.ok) throw new Error('HTTP ' + res.status);
             return res.json();
         }
-
-        // KPI yanıtı esnek: obje (anahtar→değer) ya da {items:[...]} olabilir
-        function kpisToCards(data, donem) {
-            const map = {
-                revenue: 'Dönem Geliri', period_revenue: 'Dönem Geliri',
-                ar_balance: 'Açık Alacak (AR)', accounts_receivable: 'Açık Alacak (AR)',
-                collection_rate: 'Tahsilat Oranı', overdue: 'Vadesi Geçen', overdue_amount: 'Vadesi Geçen',
+        function kpisToCards(data) {
+            const arr = asArray(data);
+            if (!arr.length) return DEMO.kpis;
+            const isimMap = {
+                journal_volume: 'Yevmiye Hacmi', yevmiye: 'Yevmiye Hacmi',
+                fixed_assets: 'Duran Varlık Değeri', fixed_asset_value: 'Duran Varlık Değeri',
+                vat_status: 'VAT Durumu',
             };
-            const cards = [];
-            for (const [k, v] of Object.entries(data || {})) {
-                const etiket = map[k] || k;
-                let deger = v;
-                if (typeof v === 'number') {
-                    deger = (k.includes('rate') || k.includes('oran')) ? yuzde(v) : para.format(v);
-                }
-                cards.push({ etiket, deger, sinif: /overdue|vadesi/.test(k) ? 'uyari' : 'bilgi' });
-            }
-            return cards.length ? cards : DEMO.kpis;
+            return arr.map(it => {
+                const k = it.key ?? it.name ?? it.etiket ?? '';
+                let v = it.value ?? it.deger ?? it.amount ?? '';
+                if (typeof v === 'number') v = String(k).includes('asset') ? para.format(v) : sayi.format(v);
+                return { etiket: isimMap[k] || k, deger: v, sinif: /vat/.test(String(k)) ? 'uyari' : 'bilgi' };
+            });
         }
 
         async function yukle() {
             const donem = document.getElementById('donem').value.trim() || '2026-02';
             try {
-                const [kpis, aging] = await Promise.all([
+                const [kpis, iskonto] = await Promise.all([
                     apiGet('/api/v1/financial/kpis/' + encodeURIComponent(donem)),
-                    apiGet('/api/v1/financial/reports/aging'),
+                    apiGet('/api/v1/financial/reports/discounts'),
                 ]);
-                renderKpis(kpisToCards(kpis, donem));
-                // aging yanıtı {buckets:{...}} ya da düz obje olabilir
-                renderAging(aging.buckets || aging || DEMO.aging);
-                renderFaturalar(DEMO.faturalar); // GET liste uç noktası yok → özet demo
+                renderKpis(kpisToCards(kpis));
+                renderIskonto(asMap(iskonto));
+                viesState = DEMO.vies.map(r => ({ ...r, durum: r.sonuc }));
+                renderVies();
+                renderTop10(DEMO.top10);
+                window.__mutabakat = DEMO.mutabakat; renderMutabakat(DEMO.mutabakat);
                 setKaynak(true);
             } catch (e) {
-                // API erişilemiyor (ör. GitHub Pages statik) → demo
                 renderKpis(DEMO.kpis);
-                renderAging(DEMO.aging);
-                renderFaturalar(DEMO.faturalar);
+                viesState = DEMO.vies.map(r => ({ ...r, durum: r.sonuc }));
+                renderVies();
+                renderIskonto(DEMO.iskonto);
+                renderTop10(DEMO.top10);
+                window.__mutabakat = DEMO.mutabakat; renderMutabakat(DEMO.mutabakat);
                 setKaynak(false);
             }
         }
 
-        async function dunningGonder() {
-            if (!confirm('Vadesi geçen alacaklar için tahsilat hatırlatması (dunning) tetiklensin mi?')) return;
-            try {
-                const base = document.getElementById('apiBase').value.trim().replace(/\/$/, '');
-                const res = await fetch(base + '/api/v1/financial/automation/trigger-dunning', {
-                    method: 'POST', headers: apiHeaders(),
-                });
-                alert(res.ok ? 'Hatırlatma süreci tetiklendi.' : 'İstek başarısız: HTTP ' + res.status);
-            } catch (e) {
-                alert('API erişilemedi (demo modu). Canlı ortamda API tabanı ve anahtarını girin.');
-            }
-        }
-
         document.getElementById('yenileBtn').addEventListener('click', yukle);
-        document.getElementById('dunningBtn').addEventListener('click', dunningGonder);
         yukle();
     </script>
 
