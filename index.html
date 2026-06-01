@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="tr">
 <head>
@@ -57,6 +58,168 @@
             font-size: 1rem;
             line-height: 1.4;
         }
+
+        /* ===========================================================
+           Modül 1 — Financial Controller paneli
+           (mevcut Catppuccin Mocha paleti ve kart diline sadık)
+           =========================================================== */
+        .bolum-ayrac {
+            max-width: 800px;
+            margin: 55px auto 30px;
+            border: none;
+            border-top: 1px solid #45475a;
+        }
+        .panel-konteyner {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left;
+        }
+        .panel-baslik {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 6px;
+        }
+        .panel-baslik h2 {
+            color: #89b4fa;
+            font-size: 1.6rem;
+            margin: 0;
+        }
+        .panel-baslik .yol { font-size: 0.9rem; }
+        .panel-aciklama {
+            color: #a6adc8;
+            font-size: 0.98rem;
+            margin-bottom: 22px;
+        }
+
+        /* Kontroller (API tabanı / anahtar / dönem) */
+        .kontrol-kart {
+            background-color: #313244;
+            border-left: 5px solid #cba6f7;
+            padding: 16px 20px;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            align-items: flex-end;
+            margin-bottom: 22px;
+        }
+        .alan { display: flex; flex-direction: column; gap: 5px; flex: 1 1 150px; }
+        .alan label { font-size: 0.78rem; color: #a6adc8; text-transform: uppercase; letter-spacing: 0.04em; }
+        .alan input {
+            background-color: #1e1e2e;
+            color: #cdd6f4;
+            border: 1px solid #45475a;
+            border-radius: 6px;
+            padding: 9px 11px;
+            font-family: inherit;
+            font-size: 0.95rem;
+        }
+        .alan input:focus { outline: none; border-color: #89b4fa; }
+        .btn {
+            background-color: #89b4fa;
+            color: #1e1e2e;
+            border: none;
+            border-radius: 6px;
+            padding: 10px 18px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: filter 0.15s ease, transform 0.05s ease;
+        }
+        .btn:hover { filter: brightness(1.1); }
+        .btn:active { transform: translateY(1px); }
+        .btn.ikincil { background-color: #f38ba8; }
+
+        /* KPI kartları */
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        .kpi-kart {
+            background-color: #313244;
+            border-left: 5px solid #a6e3a1;
+            padding: 18px 20px;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .kpi-kart.uyari { border-left-color: #f38ba8; }
+        .kpi-kart.bilgi { border-left-color: #89b4fa; }
+        .kpi-etiket {
+            color: #a6adc8;
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 8px;
+        }
+        .kpi-deger { color: #f5e0dc; font-size: 1.85rem; font-weight: bold; line-height: 1.1; }
+        .kpi-not { color: #bac2de; font-size: 0.8rem; margin-top: 6px; }
+
+        /* Tablolar */
+        .tablo-baslik {
+            color: #f5e0dc;
+            font-size: 1.15rem;
+            font-weight: bold;
+            margin: 0 0 12px 2px;
+        }
+        .fin-tablo {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #313244;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            font-size: 0.95rem;
+        }
+        .fin-tablo thead th {
+            background-color: #45475a;
+            color: #cdd6f4;
+            text-align: left;
+            padding: 12px 16px;
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+        .fin-tablo tbody td {
+            padding: 12px 16px;
+            border-top: 1px solid #45475a;
+            color: #bac2de;
+        }
+        .fin-tablo tbody tr:hover td { background-color: #3a3c52; }
+        .sag { text-align: right; font-variant-numeric: tabular-nums; }
+        .tutar { color: #f9e2af; font-family: monospace; }
+
+        /* Durum rozetleri */
+        .rozet {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 999px;
+            font-size: 0.78rem;
+            font-weight: bold;
+        }
+        .rozet.odendi { background-color: rgba(166,227,161,0.18); color: #a6e3a1; }
+        .rozet.acik   { background-color: rgba(137,180,250,0.18); color: #89b4fa; }
+        .rozet.vadesi { background-color: rgba(243,139,168,0.18); color: #f38ba8; }
+
+        .kaynak-rozet {
+            display: inline-block;
+            font-size: 0.78rem;
+            padding: 3px 10px;
+            border-radius: 999px;
+            background-color: rgba(249,226,175,0.15);
+            color: #f9e2af;
+        }
+        .kaynak-rozet.canli { background-color: rgba(166,227,161,0.18); color: #a6e3a1; }
+
+        .dipnot { color: #6c7086; font-size: 0.85rem; margin-top: 40px; }
+        a { color: #89b4fa; }
     </style>
 </head>
 <body>
@@ -107,6 +270,190 @@
         </div>
 
     </div>
+
+    <!-- ============================================================
+         Modül 1 — Financial Controller paneli
+         ============================================================ -->
+    <hr class="bolum-ayrac">
+
+    <div class="panel-konteyner">
+        <div class="panel-baslik">
+            <h2>Modül 1 · Financial Controller</h2>
+            <span class="yol">/api/v1/financial</span>
+        </div>
+        <div class="panel-aciklama">
+            Dönem KPI'ları, alacak yaşlandırması ve fatura özeti.
+            <span id="kaynakRozet" class="kaynak-rozet">demo verisi</span>
+        </div>
+
+        <div class="kontrol-kart">
+            <div class="alan">
+                <label for="apiBase">API tabanı</label>
+                <input id="apiBase" type="text" placeholder="https://api.örnek.com (boş = aynı sunucu)">
+            </div>
+            <div class="alan">
+                <label for="apiKey">X-Api-Key</label>
+                <input id="apiKey" type="password" placeholder="API anahtarı">
+            </div>
+            <div class="alan" style="flex:0 0 120px;">
+                <label for="donem">Dönem</label>
+                <input id="donem" type="text" value="2026-02">
+            </div>
+            <button class="btn" id="yenileBtn">Yenile</button>
+            <button class="btn ikincil" id="dunningBtn" title="POST /automation/trigger-dunning">Hatırlatma gönder</button>
+        </div>
+
+        <!-- KPI kartları -->
+        <div class="kpi-grid" id="kpiGrid"><!-- JS dolduruyor --></div>
+
+        <!-- Yaşlandırma tablosu -->
+        <div class="tablo-baslik">Alacak Yaşlandırması (Aging)</div>
+        <table class="fin-tablo">
+            <thead>
+                <tr><th>Kova</th><th class="sag">Tutar</th><th class="sag">Pay</th></tr>
+            </thead>
+            <tbody id="agingBody"><!-- JS dolduruyor --></tbody>
+        </table>
+
+        <!-- Fatura listesi -->
+        <div class="tablo-baslik">Son Faturalar</div>
+        <table class="fin-tablo">
+            <thead>
+                <tr><th>Fatura</th><th>Müşteri</th><th class="sag">Tutar</th><th class="sag">Durum</th></tr>
+            </thead>
+            <tbody id="faturaBody"><!-- JS dolduruyor --></tbody>
+        </table>
+    </div>
+
+    <div class="dipnot">
+        Maestro Platform · Modül 1 paneli — API erişilebilirse canlı, değilse demo verisi gösterir.
+    </div>
+
+    <script>
+        // ---- Para / yüzde biçimlendirme ----
+        const para = new Intl.NumberFormat('tr-TR', { style: 'currency', currency: 'EUR' });
+        const yuzde = (v) => (v * 100).toFixed(1).replace('.', ',') + '%';
+
+        // ---- Demo (yedek) veri: API yoksa sayfa yine de dolu görünsün ----
+        const DEMO = {
+            kpis: [
+                { etiket: 'Dönem Geliri', deger: para.format(124500), sinif: 'bilgi' },
+                { etiket: 'Açık Alacak (AR)', deger: para.format(38200), sinif: 'bilgi' },
+                { etiket: 'Tahsilat Oranı', deger: '%86,0', sinif: '' },
+                { etiket: 'Vadesi Geçen', deger: para.format(9450), sinif: 'uyari', not: '61+ gün' },
+            ],
+            aging: { '0-30': 21300, '31-60': 7450, '61+': 9450 },
+            faturalar: [
+                { no: 'INV-2026-0188', musteri: 'AS Concept (RO)', tutar: 14250, durum: 'acik' },
+                { no: 'INV-2026-0187', musteri: 'Telamor Retail (NL)', tutar: 8600, durum: 'odendi' },
+                { no: 'INV-2026-0181', musteri: 'Dekor Mağaza (DE)', tutar: 9450, durum: 'vadesi' },
+                { no: 'INV-2026-0179', musteri: 'Ahsen Tekstil (TR)', tutar: 22100, durum: 'odendi' },
+            ],
+        };
+        const DURUM_ETIKET = { odendi: 'Ödendi', acik: 'Açık', vadesi: 'Vadesi geçti' };
+
+        // ---- DOM render ----
+        function renderKpis(list) {
+            document.getElementById('kpiGrid').innerHTML = list.map(k => `
+                <div class="kpi-kart ${k.sinif || ''}">
+                    <div class="kpi-etiket">${k.etiket}</div>
+                    <div class="kpi-deger">${k.deger}</div>
+                    ${k.not ? `<div class="kpi-not">${k.not}</div>` : ''}
+                </div>`).join('');
+        }
+        function renderAging(aging) {
+            const toplam = Object.values(aging).reduce((a, b) => a + b, 0) || 1;
+            document.getElementById('agingBody').innerHTML = Object.entries(aging).map(([k, v]) => `
+                <tr>
+                    <td>${k} gün</td>
+                    <td class="sag tutar">${para.format(v)}</td>
+                    <td class="sag">${yuzde(v / toplam)}</td>
+                </tr>`).join('');
+        }
+        function renderFaturalar(rows) {
+            document.getElementById('faturaBody').innerHTML = rows.map(f => `
+                <tr>
+                    <td style="font-family:monospace;color:#f9e2af;">${f.no}</td>
+                    <td>${f.musteri}</td>
+                    <td class="sag tutar">${para.format(f.tutar)}</td>
+                    <td class="sag"><span class="rozet ${f.durum}">${DURUM_ETIKET[f.durum] || f.durum}</span></td>
+                </tr>`).join('');
+        }
+        function setKaynak(canli) {
+            const r = document.getElementById('kaynakRozet');
+            r.textContent = canli ? 'canlı API' : 'demo verisi';
+            r.classList.toggle('canli', canli);
+        }
+
+        // ---- API katmanı ----
+        function apiHeaders() {
+            const key = document.getElementById('apiKey').value.trim();
+            return key ? { 'X-Api-Key': key } : {};
+        }
+        async function apiGet(path) {
+            const base = document.getElementById('apiBase').value.trim().replace(/\/$/, '');
+            const res = await fetch(base + path, { headers: apiHeaders() });
+            if (!res.ok) throw new Error('HTTP ' + res.status);
+            return res.json();
+        }
+
+        // KPI yanıtı esnek: obje (anahtar→değer) ya da {items:[...]} olabilir
+        function kpisToCards(data, donem) {
+            const map = {
+                revenue: 'Dönem Geliri', period_revenue: 'Dönem Geliri',
+                ar_balance: 'Açık Alacak (AR)', accounts_receivable: 'Açık Alacak (AR)',
+                collection_rate: 'Tahsilat Oranı', overdue: 'Vadesi Geçen', overdue_amount: 'Vadesi Geçen',
+            };
+            const cards = [];
+            for (const [k, v] of Object.entries(data || {})) {
+                const etiket = map[k] || k;
+                let deger = v;
+                if (typeof v === 'number') {
+                    deger = (k.includes('rate') || k.includes('oran')) ? yuzde(v) : para.format(v);
+                }
+                cards.push({ etiket, deger, sinif: /overdue|vadesi/.test(k) ? 'uyari' : 'bilgi' });
+            }
+            return cards.length ? cards : DEMO.kpis;
+        }
+
+        async function yukle() {
+            const donem = document.getElementById('donem').value.trim() || '2026-02';
+            try {
+                const [kpis, aging] = await Promise.all([
+                    apiGet('/api/v1/financial/kpis/' + encodeURIComponent(donem)),
+                    apiGet('/api/v1/financial/reports/aging'),
+                ]);
+                renderKpis(kpisToCards(kpis, donem));
+                // aging yanıtı {buckets:{...}} ya da düz obje olabilir
+                renderAging(aging.buckets || aging || DEMO.aging);
+                renderFaturalar(DEMO.faturalar); // GET liste uç noktası yok → özet demo
+                setKaynak(true);
+            } catch (e) {
+                // API erişilemiyor (ör. GitHub Pages statik) → demo
+                renderKpis(DEMO.kpis);
+                renderAging(DEMO.aging);
+                renderFaturalar(DEMO.faturalar);
+                setKaynak(false);
+            }
+        }
+
+        async function dunningGonder() {
+            if (!confirm('Vadesi geçen alacaklar için tahsilat hatırlatması (dunning) tetiklensin mi?')) return;
+            try {
+                const base = document.getElementById('apiBase').value.trim().replace(/\/$/, '');
+                const res = await fetch(base + '/api/v1/financial/automation/trigger-dunning', {
+                    method: 'POST', headers: apiHeaders(),
+                });
+                alert(res.ok ? 'Hatırlatma süreci tetiklendi.' : 'İstek başarısız: HTTP ' + res.status);
+            } catch (e) {
+                alert('API erişilemedi (demo modu). Canlı ortamda API tabanı ve anahtarını girin.');
+            }
+        }
+
+        document.getElementById('yenileBtn').addEventListener('click', yukle);
+        document.getElementById('dunningBtn').addEventListener('click', dunningGonder);
+        yukle();
+    </script>
 
 </body>
 </html>
