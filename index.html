@@ -3,29 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Benim Dünyam</title>
+    <title>Maestro Platform Mimarisi</title>
     <style>
         body {
-            background-color: #1e1e2e; /* Arka planı havalı bir koyu renk yapar */
-            color: #cdd6f4; /* Yazı rengini beyaz/gri yapar */
+            background-color: #1e1e2e;
+            color: #cdd6f4;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            text-align: center; /* Her şeyi sayfaya ortalar */
-            padding-top: 50px;
+            text-align: center;
+            padding: 40px 20px;
         }
         h1 {
-            color: #89b4fa; /* Başlığı güzel bir mavi yapar */
-            font-size: 3rem;
+            color: #89b4fa;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
         }
-        p {
-            font-size: 1.2rem;
+        .alt-baslik {
             color: #a6adc8;
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+        }
+        .mimari-konteyner {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left;
+        }
+        .bilesen-kart {
+            background-color: #313244;
+            border-left: 5px solid #89b4fa;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .altyapi-kart {
+            background-color: #313244;
+            border-left: 5px solid #f38ba8; /* Altyapı katmanı için farklı renk */
+            padding: 20px;
+            margin-top: 30px;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .ust-satir {
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+        .isim { color: #f5e0dc; }
+        .yol { color: #f9e2af; font-family: monospace; font-size: 0.95rem; }
+        .rol {
+            color: #bac2de;
+            font-size: 1rem;
+            line-height: 1.4;
         }
     </style>
 </head>
 <body>
 
-    <h1>Ayhan'ın Dijital Dünyasına Hoş Geldiniz!</h1>
-    <p>Bu site benim ilk göz ağrım. Burada kendi kodlarımı yazıyor ve web geliştirmeyi öğreniyorum.</p>
+    <h1>Maestro Platform</h1>
+    <div class="alt-baslik">Sistem Mimarisi ve Bileşen Haritası</div>
+    
+    <div class="mimari-konteyner">
+        
+        <div class="bilesen-kart">
+            <div class="ust-satir">
+                <span class="isim">1. Financial Controller</span>
+                <span class="yol">modules/financial_controller/</span>
+            </div>
+            <div class="rol">Fatura → dengeli yevmiye, KDV, yaşlandırma (aging), dunning & mutabakat otomasyonu (fin_*)</div>
+        </div>
+
+        <div class="bilesen-kart">
+            <div class="ust-satir">
+                <span class="isim">2. Procurement</span>
+                <span class="yol">modules/procurement/</span>
+            </div>
+            <div class="rol">Tedarikçi teslimat skorlama, talep tahmini, reorder noktası, top↔metre normalizasyonu (proc_*)</div>
+        </div>
+
+        <div class="bilesen-kart">
+            <div class="ust-satir">
+                <span class="isim">3. Logistics Synchronizer</span>
+                <span class="yol">modules/logistics/</span>
+            </div>
+            <div class="rol">3PL webhook, durum normalizasyonu, gümrük anomalisi, barkod, sevkiyat senkronizasyonu (log_*)</div>
+        </div>
+
+        <div class="bilesen-kart">
+            <div class="ust-satir">
+                <span class="isim">4. Market & Sales Conductor</span>
+                <span class="yol">modules/market_conductor/</span>
+            </div>
+            <div class="rol">Acente performansı, ürün/kartela analitiği (mkt_*)</div>
+        </div>
+
+        <div class="altyapi-kart">
+            <div class="ust-satir">
+                <span class="isim">5. Security & Compliance Shield 🛡️</span>
+                <span class="yol">libs/security/</span>
+            </div>
+            <div class="rol">Fernet şifreleme, GDPR uyum filtresi, denetim logu — tablosuz ortak altyapı katmanı</div>
+        </div>
+
+    </div>
 
 </body>
 </html>
